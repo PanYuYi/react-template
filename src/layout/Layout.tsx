@@ -1,12 +1,13 @@
 import React from "react";
-import { Button, Layout, Menu, theme } from "antd";
+import { Layout, Menu, theme } from "antd";
 import { Outlet, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { AllState } from "../store/index";
+import Header from "./Header";
 
-import { removeToken } from "@/store/user";
+import myImg from "../assets/react.svg";
 
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 const LayoutComponent: React.FC = () => {
   const {
@@ -14,25 +15,11 @@ const LayoutComponent: React.FC = () => {
   } = theme.useToken();
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const items = useSelector((state: AllState) => state.system.menus);
 
-  const handleLoginOut = () => {
-    dispatch(removeToken());
-    navigate("/login");
-  };
-
-  const handleSelectMenu = ({ item, key, keyPath, domEvent }) => {
-    console.log(
-      "item, key, keyPath, domEvent >>>>>  ",
-      item,
-      key,
-      keyPath,
-      domEvent
-    );
-
-    navigate(`/${keyPath}`);
+  const handleSelectMenu = ({ keyPath }) => {
+    navigate(`/${keyPath.reverse().join("/")}`);
   };
 
   return (
@@ -50,8 +37,8 @@ const LayoutComponent: React.FC = () => {
           bottom: 0,
         }}
       >
-        <div className="w-[239px] h-[60px] bg-[#001529] text-[#fff] border-width-[1px] border-[#f00]">
-          这是大logo的地方
+        <div className="w-[239px] h-[60px] bg-[#001529] text-[#fff] border-[0] border-b-[1px] border-solid border-[#000]">
+          <img className="h-[60px]" src={myImg} />
         </div>
         <Menu
           theme="dark"
@@ -61,12 +48,7 @@ const LayoutComponent: React.FC = () => {
         />
       </Sider>
       <Layout style={{ marginLeft: 239 }}>
-        <Header
-          style={{ height: "60px", padding: 0, background: colorBgContainer }}
-          className="flex justify-end"
-        >
-          <Button onClick={handleLoginOut}>退出登录</Button>
-        </Header>
+        <Header colorBgContainer={colorBgContainer}></Header>
         <Content className="h-[calc(100vh-60px)]">
           <Outlet></Outlet>
         </Content>

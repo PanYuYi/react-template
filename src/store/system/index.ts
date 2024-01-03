@@ -5,28 +5,36 @@ const systemSlice = createSlice({
   initialState: {
     menus: [
       {
-        key: 'home',
-        icon: '',
-        label: 'Home',
-      },
-      {
         key: 'welcome',
         icon: '',
         label: '欢迎',
       },
       {
+        key: 'home',
+        icon: '',
+        label: 'Home',
+        children: [
+          {
+            key: 'home1',
+            icon: '',
+            label: 'Home1',
+          },
+        ],
+      },
+
+      {
         key: 'about',
         icon: '',
         label: '关于',
       },
-    ]
+    ],
   },
   reducers: {
-    setMenu: (state,{payload}) =>{
+    setMenu: (state, { payload }) => {
       console.log('setMenu >>>>>  ', payload)
       state.menus = payload
-    }
-  }
+    },
+  },
 })
 
 export const { setMenu } = systemSlice.actions

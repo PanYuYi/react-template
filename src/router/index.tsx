@@ -6,6 +6,7 @@ import NotFound from "../views/NotFound";
 import AuthLayout from "../layout/AuthLayout";
 import Welcome from "@/views/Welcome";
 import About from "@/views/About";
+import Home1 from "@/views/Home1";
 
 const routers = createBrowserRouter([
   {
@@ -15,6 +16,12 @@ const routers = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
+        children: [
+          {
+            path: "home1",
+            element: <Home1></Home1>,
+          },
+        ],
       },
       {
         path: "/welcome",

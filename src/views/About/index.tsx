@@ -7,5 +7,5 @@ export default function About() {
       <div>这是about页面</div>
       <div>这是about页面</div>
     </>
-  );
+  )
 }
