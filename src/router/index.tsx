@@ -1,46 +1,54 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from 'react-router-dom'
 
-import { LoginPage } from "../views/Login/index";
-import Home from "../views/Home";
-import NotFound from "../views/NotFound";
-import AuthLayout from "../layout/AuthLayout";
-import Welcome from "@/views/Welcome";
-import About from "@/views/About";
-import Home1 from "@/views/Home1";
+import AuthLayout from '@/layout/AuthLayout'
+import DataSet from '@/views/DataCenter/DataSet'
+import DataSource from '@/views/DataCenter/DataSource'
+import NotFound from '@/views/NotFound'
+import Welcome from '@/views/Welcome'
+import About from '@/views/About'
+import { LoginPage } from '@/views/Login/index'
 
 const routers = createBrowserRouter([
   {
-    path: "/",
+    path: '/dataCenter',
     element: <AuthLayout />,
     children: [
       {
-        path: "/home",
-        element: <Home />,
-        children: [
-          {
-            path: "home1",
-            element: <Home1></Home1>,
-          },
-        ],
-      },
-      {
-        path: "/welcome",
+        path: 'welcome',
         element: <Welcome />,
       },
       {
-        path: "/about",
+        path: 'dataSet',
+        element: <DataSet />,
+      },
+      {
+        path: 'dataSource',
+        element: <DataSource />,
+      },
+    ],
+  },
+  {
+    path: '/system',
+    element: <AuthLayout />,
+    children: [
+      {
+        path: 'about',
         element: <About />,
       },
     ],
   },
   {
-    path: "/login",
+    path: '/',
+    element: <Navigate to='/dataCenter/welcome'></Navigate>,
+  },
+  {
+    path: '/login',
     element: <LoginPage />,
   },
   {
-    path: "/*",
+    path: '/*',
     element: <NotFound></NotFound>,
   },
-]);
+])
 
-export { routers };
+export { routers }

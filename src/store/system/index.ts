@@ -5,27 +5,38 @@ const systemSlice = createSlice({
   initialState: {
     menus: [
       {
-        key: 'welcome',
+        key: 'dataCenter',
         icon: '',
-        label: '欢迎',
-      },
-      {
-        key: 'home',
-        icon: '',
-        label: 'Home',
+        label: '数据中心',
         children: [
           {
-            key: 'home1',
+            key: 'welcome',
             icon: '',
-            label: 'Home1',
+            label: '欢迎',
+          },
+          {
+            key: 'dataSet',
+            icon: '',
+            label: '数据集',
+          },
+          {
+            key: 'dataSource',
+            icon: '',
+            label: '数据源',
           },
         ],
       },
-
       {
-        key: 'about',
+        key: 'system',
         icon: '',
-        label: '关于',
+        label: '系统',
+        children: [
+          {
+            key: 'about',
+            icon: '',
+            label: '关于',
+          },
+        ],
       },
     ],
   },
