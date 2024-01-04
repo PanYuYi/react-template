@@ -15,7 +15,8 @@ const routers = createBrowserRouter([
     children: [
       {
         path: 'welcome',
-        element: <Welcome />,
+        // element: <Welcome />,
+        element: () => import('@/views/Welcome'),
       },
       {
         path: 'dataSet',
