@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux'
 import { setToken } from '@/store/user'
 import { useNavigate } from 'react-router'
 
+import userLogo from '@/assets/itman.png'
+
 export function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [userName, setUserName] = useState('')
@@ -28,7 +30,6 @@ export function LoginPage() {
 
   // 提交
   const handleSub = () => {
-    console.log('提交 >>> ', userName, pwd)
     if (userName === 'admin' && pwd === 'admin123') {
       setIsLoading(true)
       // 模拟登录
@@ -49,10 +50,15 @@ export function LoginPage() {
   return (
     <div className='login-page'>
       {conextHolder}
-      <div className='login-content flex flex-col'>
+      <div className='login-content flex flex-col items-center'>
+        <img
+          src={userLogo}
+          className='w-[108px] h-[108px] rounded-[50%] border-[#ccc] border-solid border-[1px] mb-[12px]'
+        ></img>
         <Input
           className='w-[320px]'
           defaultValue={userName}
+          placeholder='admin'
           onChange={handleChangeUserName}
           prefix={<UserOutlined />}
         ></Input>
@@ -60,6 +66,7 @@ export function LoginPage() {
           className='w-[320px]'
           style={{ marginTop: '12px' }}
           type='password'
+          placeholder='admin123'
           prefix={<UnlockOutlined />}
           defaultValue={pwd}
           onChange={handleChangePwd}

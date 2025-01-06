@@ -1,0 +1,23 @@
+.data-set-list{
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  align-content: flex-start;
+
+  .data-set-item{
+    width: 308px;
+    height: 104px;
+    padding: 24px;
+    margin-right: 18px;
+    margin-bottom: 18px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    transition: all 0.5s;
+
+    &:hover{
+      box-shadow: 0 0 18px #ccc;
+    }
+  }
+}

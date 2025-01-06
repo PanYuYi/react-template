@@ -1,8 +1,8 @@
-import { RouterProvider } from "react-router-dom";
-import { routers } from "./router";
-import { Provider } from "react-redux";
-import { ConfigProvider } from "antd";
-import { store } from "./store";
+import { RouterProvider } from 'react-router-dom'
+import { routers } from './router'
+import { Provider } from 'react-redux'
+import { ConfigProvider } from 'antd'
+import { store } from './store'
 
 function App() {
   return (
@@ -11,10 +11,10 @@ function App() {
         theme={{
           token: {
             // Seed Token，影响范围大
-            colorPrimary: "#1677ff",
+            colorPrimary: '#1677ff',
             borderRadius: 4,
             // 派生变量，影响范围小
-            colorBgContainer: "#fff",
+            colorBgContainer: '#fff',
           },
           // components: {
           //   Button: {
@@ -30,7 +30,7 @@ function App() {
         <RouterProvider router={routers} />
       </ConfigProvider>
     </Provider>
-  );
+  )
 }
 
-export default App;
+export default App

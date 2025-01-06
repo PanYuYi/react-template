@@ -7,12 +7,12 @@ const _fileUri = process.cwd()
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias:[
+    alias: [
       {
-        find:/@\//,
-        replacement: `${_fileUri}/src/`
-      }
-    ]
+        find: /@\//,
+        replacement: `${_fileUri}/src/`,
+      },
+    ],
   },
   server: {
     port: 3000,
@@ -21,8 +21,8 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: '',
-        changeOrigin: true
-      }
-    }
-  }
+        changeOrigin: true,
+      },
+    },
+  },
 })

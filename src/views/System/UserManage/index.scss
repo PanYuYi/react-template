@@ -1,0 +1,57 @@
+.user-manage-page{
+  width: 100%;
+  height: 100%;
+
+  .tree-box{
+    padding: 16px;
+    overflow: auto;
+
+    .ant-tree-node-content-wrapper {
+      flex-shrink: 0 !important;
+    }
+  }
+
+  .table-box{
+    padding: 16px;
+    overflow: auto;
+    background: #fff;
+    border-radius: 4px;
+  }
+
+}
+
+.form-table{
+  display: flex;
+  border: 1px solid #ccc;
+  flex-wrap: wrap;
+
+  .custom-form-item-row{
+    height: 75px;
+    // padding-top: 20px;
+    padding-right: 16px;
+    margin-bottom: 0;
+    overflow: hidden;
+
+    .ant-form-item-label{
+      height: 74px;
+      line-height: 74px;
+      background: #f7f7f7;
+    }
+    .ant-form-item-control{
+      padding-left: 16px;
+      justify-content: center;
+    }
+
+  }
+
+  .left-border{
+    border-left: 1px solid #ccc;
+  }
+  .bottom-border{
+    border-bottom: 1px solid #ccc;
+  }
+
+  .ant-form-item-margin-offset{
+    // margin: 0 !important;
+  }
+}

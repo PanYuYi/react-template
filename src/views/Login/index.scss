@@ -3,6 +3,8 @@
   height: 100vh;
   overflow: auto;
   background: #f4f5f7;
+  background: url('../../assets/bg_1.jpg') no-repeat center center;
+  background-size: cover;
 
   .login-content{
     position: absolute;

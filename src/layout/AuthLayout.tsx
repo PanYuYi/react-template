@@ -9,9 +9,5 @@ export default function AuthLayout() {
     token = sessionStorage.getItem('token') ? JSON.parse(sessionStorage.getItem('token') as string) : null
   }
   console.log('token >>>>>  ', token)
-  if (token) {
-    return <Layout></Layout>
-  } else {
-    return <Navigate to='/login' />
-  }
+  return token ? <Layout /> : <Navigate to='/login' />
 }

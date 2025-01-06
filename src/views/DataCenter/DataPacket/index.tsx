@@ -1,5 +1,5 @@
 import { Button, Input } from 'antd'
-import { getDatasetListData } from '@/api'
+import { getListData } from '@/api'
 import { useEffect, useMemo, useState } from 'react'
 import { PlusOutlined } from '@ant-design/icons'
 import './index.scss'
@@ -15,7 +15,7 @@ interface DataType {
   createBy?: string
 }
 
-export default function DataSetPage() {
+export default function DataPacket() {
   const navigate = useNavigate()
   const [searchValue, setSearchValue] = useState<string>('')
   const [dataList, setDataList] = useState<DataType[]>([])
@@ -33,14 +33,18 @@ export default function DataSetPage() {
     setSearchValue(e)
   }
 
+  const handleAddNewFolder = () => {
+    console.log('新建文件夹 >>>>> ')
+  }
+
   // 跳转数据集
   const handleGoto = (item: DataType) => {
     console.log('item >>>>>  ', item)
-    navigate(`dataSetDetails?id=${item.id}`)
+    navigate(`dataSet?id=${item.id}`)
   }
 
   useEffect(() => {
-    getDatasetListData().then((res: DataType[]) => {
+    getListData().then((res: DataType[]) => {
       setDataList(res)
     })
   }, [])
@@ -49,9 +53,9 @@ export default function DataSetPage() {
     <div className='w-full h-full '>
       <div className='flex justify-between items-center p-[24px] pb-[0px]'>
         <div className='flex justify-center items-center'>
-          <Button type='primary'>
+          <Button type='primary' onClick={handleAddNewFolder}>
             <PlusOutlined className='mr-[4px]' />
-            新建数据集
+            新建文件夹
           </Button>
           <span className='ml-[24px] mr-[24px]'>|</span> 这是您的资源
         </div>

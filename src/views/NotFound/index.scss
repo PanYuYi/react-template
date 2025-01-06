@@ -1,0 +1,53 @@
+.not-found-page{
+  text-align: center;
+
+  .tips{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    .number{
+      position: relative;
+      font-size: 80px;
+      font-style: italic;
+      font-weight: 700;
+      color: #000;
+      transition: 1s all;
+
+      
+      &::before{
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        width: 10px;
+        height: 100%;
+        background: #fff;
+        content: " ";
+        transform: rotate(14deg);
+        animation: color-ani 2s infinite linear forwards;
+        transition: 1s all;
+      }
+    }
+
+    .text{
+      font-size: 12px;
+      color: #666;
+      text-decoration: underline;
+    }
+  }
+}
+
+@keyframes color-ani {
+  0%{
+    left: 0;
+  }
+
+  60%{
+    left: 100%;
+  }
+
+  100%{
+    left: 100%;
+  }
+}
